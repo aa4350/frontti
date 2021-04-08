@@ -2,6 +2,6 @@
 
 ## Hyödynnetyt materiaalit
 
-[Svelten tutoriaalit] (https://svelte.dev/tutorial/)
-[Apin sivusto] (https://api.chucknorris.io/)
+[Svelten tutoriaalit](https://svelte.dev/tutorial/)
+[Apin sivusto](https://api.chucknorris.io/)
 Luentomateriaalit ja tallenteet
