@@ -33,6 +33,7 @@
     top: 10vh;
     left: 10%;
     width: 80%;
+    height: 50%;
     max-height: 80vh;
     background: white;
     border-radius: 5px;
