@@ -5,10 +5,14 @@
 
   const dispatch = createEventDispatcher();
 
+  //Tältä alueelta löytyy custom eventin asiat sekä infoikkunan sulkemiseen käytettävä timeout
+
   setTimeout(() => {
     dispatch('hideinfo');
   }, 7000);
   let joke = '';
+
+  //Ulkopuolisen tietokannan dataa kutsutaan ja data merkataan joke muuttajalle.
 
   const fetchJoke = async () => {
     const response = await fetch('https://api.chucknorris.io/jokes/random');
@@ -16,8 +20,12 @@
     joke = data.value;
   };
 
+  //onMount sisältö toteutuu kun komponentin sisältö on renderöity
+
   onMount(fetchJoke);
 </script>
+
+<!-- transitioita -->
 
 <div
   class="info"

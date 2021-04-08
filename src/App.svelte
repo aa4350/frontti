@@ -11,6 +11,9 @@
   let osoite;
   let viesti;
 
+  //Tämä on funktio joka suoritetaan kun painetaan nappia modalissa tai backdroppia
+  //Kentät tyhjentyy, modal häviää ja viestit store päivittyy viestikentän sisällöllä
+
   const sulje = () => {
     modal = false;
     nimi = '';
@@ -21,10 +24,16 @@
 </script>
 
 <main>
-  <h1>Lopputyö</h1>
+  <h1>Chuck on mies</h1>
+
+  <!-- Alla oleva if-lause määrittelee apista otetun tiedon näkyvyyden.
+  Info komponentissa oleva  timeout funktio sulkee ikkunan tietyn ajan kuluttua.-->
+
   {#if infoVisible}
     <Info on:hideinfo={() => (infoVisible = false)} />
   {/if}
+
+  <!-- Modalin koodia. Välitetään on:click tapahtuma, jossa funktiona sulje funktio. -->
 
   {#if modal}
     <Modal on:click={sulje}
@@ -36,6 +45,9 @@
     >
   {/if}
   <p>Paina saadaksesi Chuck Norrisista faktan</p>
+
+  <!-- Napilla infoikkuna aukeaa -->
+
   <Button
     on:click={() => {
       infoVisible = true;
@@ -44,6 +56,8 @@
   <hr />
   <article>
     <h3>Lähetä Chuckille persoonallinen viesti:</h3>
+
+    <!-- Form elementit alla, arvot bindattu muuttujiin -->
 
     <div>
       <div>
@@ -68,10 +82,16 @@
         />
       </div>
     </div>
+
+    <!-- Napin painalluksella modal ikkuna ilmestyy. -->
+
     <Button on:click={() => (modal = true)}>Tulosta ja lähetä</Button>
   </article>
   <hr />
   <h3>Lähetetyt viestit</h3>
+
+  <!-- Each lohkon sisältävä listakomponentti -->
+
   <Viestilista />
 </main>
 
