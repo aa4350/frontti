@@ -11,9 +11,10 @@
     text-decoration: none;
     font-family: 'Roboto', sans-serif;
     font-weight: 300;
-    color: #ff3e00;
+    color: #ff7e29;
     text-align: center;
     transition: all 0.2s;
+    box-shadow: 1px 1px black;
   }
   button:hover {
     color: #000000;

@@ -24,14 +24,17 @@
 </script>
 
 <main>
-  <h1>Chuck on mies</h1>
-
+  <div class="otsikko">
+    <h1><b>Chuck</b> on mies</h1>
+  </div>
   <!-- Alla oleva if-lause määrittelee apista otetun tiedon näkyvyyden.
   Info komponentissa oleva  timeout funktio sulkee ikkunan tietyn ajan kuluttua.-->
 
   {#if infoVisible}
     <Info on:hideinfo={() => (infoVisible = false)} />
   {/if}
+
+  <hr />
 
   <!-- Modalin koodia. Välitetään on:click tapahtuma, jossa funktiona sulje funktio. -->
 
@@ -44,15 +47,17 @@
       <p>Viesti: {viesti}</p></Modal
     >
   {/if}
-  <p>Paina saadaksesi Chuck Norrisista faktan</p>
+  <div class="fact">
+    <p>Paina saadaksesi Chuck Norrisista faktan</p>
 
-  <!-- Napilla infoikkuna aukeaa -->
+    <!-- Napilla infoikkuna aukeaa -->
 
-  <Button
-    on:click={() => {
-      infoVisible = true;
-    }}>Jee</Button
-  >
+    <Button
+      on:click={() => {
+        infoVisible = true;
+      }}>Jee</Button
+    >
+  </div>
   <hr />
   <article>
     <h3>Lähetä Chuckille persoonallinen viesti:</h3>
@@ -91,8 +96,11 @@
   <h3>Lähetetyt viestit</h3>
 
   <!-- Each lohkon sisältävä listakomponentti -->
-
-  <Viestilista />
+  {#if $viestit.length > 0}
+    <Viestilista />
+  {:else}
+    <p>Ei vielä viestejä</p>
+  {/if}
 </main>
 
 <style>
@@ -101,13 +109,19 @@
     padding: 1em;
     max-width: 240px;
     margin: 0 auto;
+    background-color: rgb(247, 240, 255);
+    height: 100%;
   }
 
   h1 {
-    color: #ff3e00;
+    margin: auto;
+    color: #200065;
     text-transform: uppercase;
     font-size: 4em;
     font-weight: 100;
+    background-color: rgb(244, 234, 255);
+    width: 40%;
+    box-shadow: 1px 1px black;
   }
   div {
     padding: 0.5em;
@@ -118,7 +132,9 @@
   #osot {
     width: 20em;
   }
-  article {
+  article,
+  .fact,
+  .otsikko {
     padding: 1em;
   }
   @media (min-width: 640px) {
